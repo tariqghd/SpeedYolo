@@ -61,7 +61,7 @@ conda list
 
 1. Make sure you are inside the project directoy 
 ```
-cd 
+ cd SpeedYolo/
 ```
 2. Download YOLOv3 weights from [YOLO website](http://pjreddie.com/darknet/yolo/).
 ```
@@ -89,7 +89,15 @@ File `yolo_submit.sh` is the speed script to run video example to run it you fol
 1. Since this job is an interactive job we need to keep `ssh -X` option enabled and `xming` server in your windows  working. 
 2. The `qsub` is not the proper command since we have to keep direct ssh connection to the computational node, so `qlogin` will be used. 
 3. Enter `qlogin` in the `speed-submit`. The `qlogin` will find an approriate  computational node then it will allow you to have direct `ssh -X' login to that node. 
-4. start run the script `./yolo_submit.sh`    
+```
+qlogin 
+cd [/speed-scratch/$USER/SpeedYolo
+```
+4. Before you run the script you need to add access to the file, then start run the script `./yolo_submit.sh`    
+```
+chmod +rwx *
+./yolo_submit.sh
+```
 5. A pop up window will show a classifed live video. 
 
 Please note that since we have limited number of node with GPU support `qlogin` is not allowed to direct you to login to these server you will be directed to the availabel computation nodes in the cluster with CPU support only. 
