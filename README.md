@@ -88,7 +88,7 @@ File `yolo_submit.sh` is the speed script to run video example to run it you fol
 4. start run the script `./yolo_submit.sh`    
 5. A pop up window will show a classifed live video. 
 
-Please note that since we have limited number of node with GPU support `qlogin` is not allowed to direct you to login to these server you will be directed to the avaialbel computation nodes in the cluster with CPU support only. 
+Please note that since we have limited number of node with GPU support `qlogin` is not allowed to direct you to login to these server you will be directed to the availabel computation nodes in the cluster with CPU support only. 
 
 
 For Tiny YOLOv3, just do in a similar way, just specify model path and anchor path with `--model model_file` and `--anchors anchor_file`.
