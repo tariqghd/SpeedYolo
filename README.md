@@ -25,15 +25,15 @@ master's thesis:
 
 ## Speed Login Configuration 
 1. As interactive login is requred in this project that show you live video you need to enable ssh login with -X support. Please check this [link](https://www.concordia.ca/ginacody/aits/support/faq/xserver.html) to do that.
-2. If you didn't know how to login to speed and prepare working environment please check the manual in the follwing [link](https://github.com/NAG-DevOps/speed-hpc/blob/master/doc/speed-manual.pdf).
+2. If you didn't know how to login to speed and prepare working environment please check the manual in the follwing [link](https://github.com/NAG-DevOps/speed-hpc/blob/master/doc/speed-manual.pdf) section 2.
 
-After you loged in change your working directory to /speed-scratch/$USER diectory.
+After you loged in change your working directory to `/speed-scratch/$USER` diectory.
 ```
 cd /speed-scratch/$USER/
 ```
 
 ## Development Environment Preperation. 
-The pre-requisites to prepare the virtual development environment using anaconda is located in *environment.yml*. You can check [speed manual](https://github.com/NAG-DevOps/speed-hpc/blob/master/doc/speed-manual.pdf) section three for more inforamtion.
+The pre-requisites to prepare the virtual development environment using anaconda is located in *environment.yml*. You can check [speed manual](https://github.com/NAG-DevOps/speed-hpc/blob/master/doc/speed-manual.pdf) section 3 for more inforamtion.
 1. Starting by loading anaconda module 
 ```
 module load anaconda/default
@@ -52,15 +52,9 @@ conda info --env
 conda list
 ```
 
-
-
-
-
-
-
 ## Quick Start
 
-1. Download Yolo project from [Github website] to your speed-scratch proper diectory. 
+1. Make sure you are in speed-scratch directory. Then Download Yolo project from [Github website](https://github.com/tariqghd/SpeedYolo) to your speed-scratch proper diectory. 
 ```
 cd /speed-scratch/$USER/
 git clone https://github.com/tariqghd/SpeedYolo.git
@@ -73,11 +67,29 @@ wget https://pjreddie.com/media/files/yolov3.weights
 ```
 python convert.py yolov3.cfg yolov3.weights model_data/yolo.h5
 ```
-3. Run YOLO detection.
+3. Run YOLO detection, using exsiting samples.
 ```
 python yolo_video.py [OPTIONS...] --image, for image detection mode, OR
 python yolo_video.py [video_path] [output_path (optional)]
 ```
+For image run:
+```
+python yolo_video.py --model model_data/yolo.h5 --classes model_data/coco_classes.txt --image image/dog.jpg
+```
+For video 
+```
+python yolo_video.py --input video/v1.avi --output vido/001.avi
+```
+## Run Script 
+File `yolo_submit.sh` is the speed script to run video example to run it you follow these steps:
+1. Since this job is an interactive job we need to keep `ssh -X` option enabled and `xming` server in your windows  working. 
+2. The `qsub` is not the proper command since we have to keep direct ssh connection to the computational node, so `qlogin` will be used. 
+3. Enter `qlogin` in the `speed-submit`. The `qlogin` will find an approriate  computational node then it will allow you to have direct `ssh -X' login to that node. 
+4. start run the script `./yolo_submit.sh`    
+5. A pop up window will show a classifed live video. 
+
+Please note that since we have limited number of node with GPU support `qlogin` is not allowed to direct you to login to these server you will be directed to the avaialbel computation nodes in the cluster with CPU support only. 
+
 
 For Tiny YOLOv3, just do in a similar way, just specify model path and anchor path with `--model model_file` and `--anchors anchor_file`.
 
@@ -105,6 +117,9 @@ optional arguments:
 ---
 
 4. MultiGPU usage: use `--gpu_num N` to use N GPUs. It is passed to the [Keras multi_gpu_model()](https://keras.io/utils/#multi_gpu_model).
+
+## Run script on speed  
+
 
 ## Training
 
