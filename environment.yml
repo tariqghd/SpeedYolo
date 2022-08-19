@@ -1,0 +1,16 @@
+# Packages needed to run the job on GPUs:
+# cudatoolkit=9.0, cudnn=7, tensorflow-gpu==1.12.0
+# you can run this configuration in both CPU and GPU nodes. 
+
+name: yoloConda
+channels:
+- anaconda
+- defaults
+dependencies:
+- python=3.5
+- Keras=2.1.5
+- Pillow
+- matplotlib
+- -c menpo opencv
+- pip:
+  - opencv-contrib-python

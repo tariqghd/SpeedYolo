@@ -16,15 +16,65 @@ master's thesis:
 
 ---
 
+## Environment 
+ Images and videos can be from any source, but we provided you with a video and images sample in folders video and image. 
+ This demo will run in an interactive way for both image and video.
+ 1) For image you provide the server with image path/name and return the classes of images.
+ 2) For video you will provide video path/name in the script argument and get a live video that dispaly object in each frame and finally the code will generate a new classified video stored in your video folder.  
+
+
+## Speed Login Configuration 
+1. As interactive login is requred in this project that show you live video you need to enable ssh login with -X support. Please check this [link](https://www.concordia.ca/ginacody/aits/support/faq/xserver.html) to do that.
+2. If you didn't know how to login to speed and prepare working environment please check the manual in the follwing [link](https://github.com/NAG-DevOps/speed-hpc/blob/master/doc/speed-manual.pdf).
+
+After you loged in change your working directory to /speed-scratch/$USER diectory.
+```
+cd /speed-scratch/$USER/
+```
+
+## Development Environment Preperation. 
+The pre-requisites to prepare the virtual development environment using anaconda is located in *environment.yml*. You can check [speed manual](https://github.com/NAG-DevOps/speed-hpc/blob/master/doc/speed-manual.pdf) section three for more inforamtion.
+1. Starting by loading anaconda module 
+```
+module load anaconda/default
+```
+2. Create anaconda virtual environment, conda configuration will be from the .yml file. The name of the enviroment can by any name here as example named YOLO. 
+```
+conda env create -f environment.yml -p /speed-scratch/$USER/YOLO
+```
+3. Activate the conda environment 
+```
+conda activate /speed-scratch/$USER/YOLO
+```
+4. Validate conda environemnt and installed packeges using following commands. Make sure the version of python and keras are same as requred.
+```
+conda info --env
+conda list
+```
+
+
+
+
+
+
+
 ## Quick Start
 
-1. Download YOLOv3 weights from [YOLO website](http://pjreddie.com/darknet/yolo/).
-2. Convert the Darknet YOLO model to a Keras model.
-3. Run YOLO detection.
-
+1. Download Yolo project from [Github website] to your speed-scratch proper diectory. 
+```
+cd /speed-scratch/$USER/
+git clone https://github.com/tariqghd/SpeedYolo.git
+```
+2. Download YOLOv3 weights from [YOLO website](http://pjreddie.com/darknet/yolo/).
 ```
 wget https://pjreddie.com/media/files/yolov3.weights
+```
+2. Convert the Darknet YOLO model to a Keras model.
+```
 python convert.py yolov3.cfg yolov3.weights model_data/yolo.h5
+```
+3. Run YOLO detection.
+```
 python yolo_video.py [OPTIONS...] --image, for image detection mode, OR
 python yolo_video.py [video_path] [output_path (optional)]
 ```
