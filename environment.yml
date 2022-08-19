@@ -11,6 +11,6 @@ dependencies:
 - Keras=2.1.5
 - Pillow
 - matplotlib
-- -c menpo opencv
+- c menpo opencv
 - pip:
   - opencv-contrib-python
