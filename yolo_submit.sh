@@ -24,4 +24,4 @@
 conda activate /speed-scratch/$USER/YOLO
 
 # video example 
-python yolo_video.py --input vido/v1.avi --output video/002.avi
+python yolo_video.py --input video/v1.avi --output video/002.avi

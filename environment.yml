@@ -5,12 +5,13 @@
 name: yoloConda
 channels:
 - anaconda
+- menpo
 - defaults
 dependencies:
 - python=3.5
 - Keras=2.1.5
 - Pillow
 - matplotlib
-- c menpo opencv
+- opencv
 - pip:
   - opencv-contrib-python

@@ -43,13 +43,17 @@ git clone https://github.com/tariqghd/SpeedYolo.git
 ```
 module load anaconda/default
 ```
-3. Create anaconda virtual environment, conda configuration will be from the .yml file. The name of the enviroment can by any name here as example named YOLO. 
+3. Create anaconda virtual environment, conda configuration will be from the .yml file. The name of the enviroment can by any name here as example named YOLO, after you switch to the project directoy. 
 ```
+cd SpeedYolo
 conda env create -f environment.yml -p /speed-scratch/$USER/YOLO
 ```
-4. Activate the conda environment 
+4. Activate the conda environment, you need to upgrade pip and install opencv-contrib-python library 
 ```
 conda activate /speed-scratch/$USER/YOLO
+pip install --upgrade pip 
+pip install opencv-contrib-python
+
 ```
 5. Validate conda environemnt and installed packeges using following commands. Make sure the version of python and keras are same as requred.
 ```
@@ -91,7 +95,7 @@ File `yolo_submit.sh` is the speed script to run video example to run it you fol
 3. Enter `qlogin` in the `speed-submit`. The `qlogin` will find an approriate  computational node then it will allow you to have direct `ssh -X' login to that node. 
 ```
 qlogin 
-cd [/speed-scratch/$USER/SpeedYolo
+cd /speed-scratch/$USER/SpeedYolo
 ```
 4. Before you run the script you need to add access to the file, then start run the script `./yolo_submit.sh`    
 ```
