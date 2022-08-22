@@ -85,7 +85,7 @@ conda env remove -p /speed-scratch/$USER/YOLOInteractive
 
 1. Make sure you are inside the project directoy 
 ```
- cd SpeedYolo/
+ cd /speed-scratch/$USER/SpeedYolo/
 ```
 2. Download YOLOv3 weights from [YOLO website](http://pjreddie.com/darknet/yolo/).
 ```
@@ -100,9 +100,9 @@ python convert.py yolov3.cfg yolov3.weights model_data/yolo.h5
 python yolo_video.py [OPTIONS...] --image, for image detection mode, OR
 python yolo_video.py [video_path] [output_path (optional)]
 ```
-For image run:
+For image run follwing command and the program will ask you about the image path and name:
 ```
-python yolo_video.py --model model_data/yolo.h5 --classes model_data/coco_classes.txt --image image/dog.jpg
+python yolo_video.py --model model_data/yolo.h5 --classes model_data/coco_classes.txt --image 
 ```
 For video 
 ```
@@ -112,12 +112,14 @@ python yolo_video.py --input video/v1.avi --output vido/001.avi
 File `yolo_submit.sh` is the speed script to run video example to run it you follow these steps:
 1. Since this job is an interactive job we need to keep `ssh -X` option enabled and `xming` server in your windows  working. 
 2. The `qsub` is not the proper command since we have to keep direct ssh connection to the computational node, so `qlogin` will be used. 
-3. Enter `qlogin` in the `speed-submit`. The `qlogin` will find an approriate  computational node then it will allow you to have direct `ssh -X' login to that node. 
+3. Enter `qlogin` in the `speed-submit`. The `qlogin` will find an approriate  computational node then it will allow you to have direct `ssh -X' login to that node. Make sure you are in the right directory and activate conda environment again.
+
 ```
 qlogin 
 cd /speed-scratch/$USER/SpeedYolo
+conda activate /speed-scratch/$USER/YOLOInteractive
 ```
-4. Before you run the script you need to add access to the file, then start run the script `./yolo_submit.sh`    
+4. Before you run the script you need to add permission access to the project files, then start run the script `./yolo_submit.sh`    
 ```
 chmod +rwx *
 ./yolo_submit.sh
