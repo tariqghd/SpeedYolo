@@ -66,8 +66,6 @@ conda install matplotlib
 conda install -c menpo opencv
 pip install --upgrade pip 
 pip install opencv-contrib-python
-pip install --upgrade pip 
-pip install opencv-contrib-python
 ```
 
 5. Validate conda environemnt and installed packeges using following commands. Make sure the version of python and keras are same as requred.
