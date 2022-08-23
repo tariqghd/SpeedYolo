@@ -24,7 +24,7 @@
 conda activate /speed-scratch/$USER/YOLOInteractive
 
 # Image example 
-python yolo_video.py --model model_data/yolo.h5 --classes model_data/coco_classes.txt --image 
+#python yolo_video.py --model model_data/yolo.h5 --classes model_data/coco_classes.txt --image 
 
 # Video example 
 python yolo_video.py --input video/v1.avi --output video/002.avi
