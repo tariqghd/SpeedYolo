@@ -53,7 +53,7 @@ conda env remove -p /speed-scratch/$USER/YOLO
 
 ```
 cd /speed-scratch/$USER/SpeedYolo
-conda env create -p /speed-scratch/$USER/YOLOInteractive
+conda create -p /speed-scratch/$USER/YOLOInteractive
 conda activate /speed-scratch/$USER/YOLOInteractive
 ```
 4. Install all required librires you need to upgrade pip and install opencv-contrib-python library 
@@ -73,7 +73,7 @@ pip install opencv-contrib-python
 conda info --env
 conda list
 ```
-if you need to delet the created virtual environment 
+if you need to delete the created virtual environment 
 ```
 conda deactivate
 conda env remove -p /speed-scratch/$USER/YOLOInteractive

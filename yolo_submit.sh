@@ -21,7 +21,12 @@
 # -o name.qlog
 
 
-conda activate /speed-scratch/$USER/YOLO
+conda activate /speed-scratch/$USER/YOLOInteractive
 
-# video example 
+# Image example 
+python yolo_video.py --model model_data/yolo.h5 --classes model_data/coco_classes.txt --image 
+
+# Video example 
 python yolo_video.py --input video/v1.avi --output video/002.avi
+
+conda deactivate
