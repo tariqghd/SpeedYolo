@@ -60,12 +60,14 @@ conda activate /speed-scratch/$USER/YOLOInteractive
 
 ```
 conda install python=3.5
+conda install tensorflow-gpu=1.10.0
 conda install Keras=2.1.5
 conda install Pillow
 conda install matplotlib
 conda install -c menpo opencv
 pip install --upgrade pip 
 pip install opencv-contrib-python
+
 ```
 
 5. Validate conda environemnt and installed packeges using following commands. Make sure the version of python and keras are same as requred.
