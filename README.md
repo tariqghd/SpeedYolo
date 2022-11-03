@@ -131,6 +131,15 @@ Please note that since we have limited number of node with GPU support `qlogin` 
 
 For Tiny YOLOv3, just do in a similar way, just specify model path and anchor path with `--model model_file` and `--anchors anchor_file`.
 
+## performance comparison 
+Time is in seconds, run Yolo inactive session with different hardware configurations. 
+
+|    1GPU       |    2GPU       |    32CPU       |
+| ------------- | ------------- |----------------|
+|   17.15       |   23.33       |     60.42      |
+|   17.54       |   14.21       |     60.18      |
+|   17.18       |   17.25       |     60.47      |
+
 ### Usage
 Use --help to see usage of yolo_video.py:
 ```
@@ -194,7 +203,7 @@ If you want to use original pretrained weights for YOLOv3:
 1. The test environment is
     - Python 3.5.2
     - Keras 2.1.5
-    - tensorflow 1.6.0
+    - tensorflowgpu 1.10.0
 
 2. Default anchors are used. If you use your own anchors, probably some changes are needed.
 
