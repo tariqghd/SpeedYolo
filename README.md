@@ -137,8 +137,8 @@ Time is in seconds, run Yolo inactive session with different hardware configurat
 |    1GPU       |    2GPU       |    32CPU       |
 | ------------- | ------------- |----------------|
 |   17.15       |   23.33       |     60.42      |
-|   17.54       |   14.21       |     60.18      |
-|   17.18       |   17.25       |     60.47      |
+|   17.54       |   23.08       |     60.18      |
+|   17.18       |   23.13       |     60.47      |
 
 ### Usage
 Use --help to see usage of yolo_video.py:
