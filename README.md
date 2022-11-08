@@ -132,7 +132,7 @@ Please note that since we have limited number of node with GPU support `qlogin` 
 For Tiny YOLOv3, just do in a similar way, just specify model path and anchor path with `--model model_file` and `--anchors anchor_file`.
 
 ## performance comparison 
-Time is in seconds, run Yolo inactive session with different hardware configurations. 
+Time is in seconds, run Yolo inactive session with different hardware configurations. V100GPU
 
 |    1GPU       |    2GPU       |    32CPU       |
 | ------------- | ------------- |----------------|
