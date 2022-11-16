@@ -132,13 +132,13 @@ Please note that since we have limited number of node with GPU support `qlogin` 
 For Tiny YOLOv3, just do in a similar way, just specify model path and anchor path with `--model model_file` and `--anchors anchor_file`.
 
 ## performance comparison 
-Time is in seconds, run Yolo inactive session with different hardware configurations. V100GPU
+Time is in minutes, run Yolo with different hardware configurations GPU types V100 and Tesla P6. Please note that there is an issue to run Yolo project on more than one GPU in case of teasla P6. The project use  keras.utils library calling `multi_gpu_model()` function, which cause hardware faluts and force to restart the server. GPU name for V100 (gpu32), for P6 (gpu) you can find that in scripts shell.    
 
-|    1GPU       |    2GPU       |    32CPU       |
-| ------------- | ------------- |----------------|
-|   17.15       |   23.33       |     60.42      |
-|   17.54       |   23.08       |     60.18      |
-|   17.18       |   23.13       |     60.47      |
+|   1GPU-P6     |    1GPU-V100  |    2GPU-V100  |    32CPU       |
+| --------------|-------------- |-------------- |----------------|
+|    22.45      |   17.15       |   23.33       |     60.42      |
+|    22.15      |   17.54       |   23.08       |     60.18      |
+|    22.18      |   17.18       |   23.13       |     60.47      |
 
 ### Usage
 Use --help to see usage of yolo_video.py:
