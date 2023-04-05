@@ -106,7 +106,7 @@ python yolo_video.py --model model_data/yolo.h5 --classes model_data/coco_classe
 ```
 For video 
 ```
-python yolo_video.py --input video/v1.avi --output vido/001.avi
+python yolo_video.py --input video/v1.avi --output video/001.avi
 ```
 ## Run Script 
 File `yolo_submit.sh` is the speed script to run video example to run it you follow these steps:
